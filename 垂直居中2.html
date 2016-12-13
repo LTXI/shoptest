@@ -1,0 +1,44 @@
+<!DOCTYPE html >
+<html >
+ <head>
+  <title> 多行文字实现垂直居中 </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css">
+ /* 换行文字垂直居中 */
+ .vc-font1 {
+     border: 1px solid black;
+     width: 200px;
+     height: 200px;
+     display: table-cell;
+     vertical-align: middle;
+     text-align: center;
+ }
+
+ /* 兼容IE6、7 */
+ *+html .vc-font1 {
+     height: auto;
+     min-height: 200px;
+ }
+
+ .vc-font1 .vc-fix {
+     *position: relative;
+     *top: 50%;
+     *left: 50%;
+     *width: 100%;
+ }
+
+ .vc-font1 .vc-inner {
+     *position: relative;
+     *top: -50%;
+     *left: -50%;
+ }
+  </style>
+ </head>
+ <body>
+<div class="vc-font1">
+    <div class="vc-fix"><span class="vc-inner">换行文字垂直居中，兼容所有浏览器</span></div>
+</div>
+
+
+ </body>
+</html>

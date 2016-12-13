@@ -1,0 +1,40 @@
+@charset "utf-8";
+/*
+初始样式重置
+v1.0.0
+2016-12-1
+Author ： LIUTX
+*/
+html, body, div, span, object,  iframe, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, 
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+}
+html {
+    color: #000;
+    background: #FFF
+}
+ol, ul,li {
+	list-style-type: none;
+}
+blockquote, q {
+	quotes:  "";
+}
+blockquote:before, blockquote:after, 
+q:before, q:after {
+	content: "";
+	content:  none;
+}
+
+fieldset, img {
+	border:  0;
+}

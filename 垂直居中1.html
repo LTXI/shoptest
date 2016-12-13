@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>水平垂直居中</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<p>方法一：position加margin  兼容性：主流浏览器均支持，IE6不支持</p>
+<style type="text/css">
+	.test1 .wrap {
+		width: 200px;
+		height: 200px;
+		background: yellow;
+		position:  relative;
+	}
+	.test1 .wrap .center {
+		width: 100px;
+		height: 100px;
+		background: orange;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+	}
+
+</style>
+<div class="test1">
+	<div class="wrap">
+	    <div class="center">center</div>
+	</div>
+</div>
+<style type="text/css">
+	.test2 .wrap {
+		width: 200px;
+		height:  200px;
+		background: yellow;
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+	}
+	.test2 .wrap .center {
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+		background: orange;
+		vertical-align: middle;
+	}
+</style>
+<p>方法二： diaplay:table-cell  兼容性：由于display:table-cell的原因，IE6\7不兼容</p>
+<div class="test2">
+	<div class="wrap">
+	    <div class="center">center</div>
+	</div>
+</div>
+
+<p>方法三：position加 transform 兼容性：ie9以下不支持 transform，手机端表现的比较好。</p>
+<style type="text/css">
+	.test3 .wrap {
+	    position: relative;
+	    background: yellow;
+	    width: 200px;
+	    height: 200px;
+	  }
+	  .test3 .wrap .center {
+	  	position: absolute;
+	  	background: orange;
+	  	top: 50%;
+	  	left: 50%;
+	  	width: 100px;
+	  	height: 100px;
+	  	-webkit-transform: translate(-50%, -50%);
+	  	transform:translate(-50%,-50%);
+	  }
+</style>
+<div class="test3">
+	<div class="wrap">
+	    <div class="center">center</div>
+	</div>
+</div>
+
+<p>方法四：flex;align-items: center;justify-content: center  移动端首选</p>
+<style type="text/css">
+	.test4 .wrap {
+	    background: yellow;
+	    width: 200px;
+	    height: 200px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+
+
+	  }
+	  .test4 .wrap .center {
+	      background: orange;
+	      width: 100px;
+	      height: 100px;
+	  }
+</style>
+<div class="test4">
+	<div class="wrap">
+	    <div class="center">center</div>
+	</div>
+</div>
+<p>方法五：display:flex;margin:auto 移动端首选</p>
+<style type="text/css">
+	.test5 .wrap {
+		background: yellow;
+		width: 200px;
+		height: 200px;
+		display: flex;
+	}
+	.test5 .wrap .center {
+		background: orange;
+		width: 100px;
+		height: 100px;
+		margin: auto;
+	}
+</style>
+<div class="test5">
+	<div class="wrap">
+	    <div class="center">center</div>
+	</div>
+</div>
+
+<p>方法六：纯position 兼容性：适用于所有浏览器</p>
+<style type="text/css">
+	.test6 .wrap {
+	    background: yellow;
+	    width: 200px;
+	    height: 200px;
+	    position: relative;
+	}
+	/**方法一**/
+/* 	.test6 .wrap .center {
+	background: green;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	left: 50px;
+	top: 50px; 
+} */
+	/**方法二**/
+	.test6 .wrap .center {
+	    background: green;
+	    position: absolute;
+	    width: 100px;
+	    height: 100px;
+	    left: 50%;
+	    top: 50%;
+	   margin-left: -50px;
+	   margin-top: -50px;
+	}
+	/**
+	      方法一计算公式如下：
+	　　子元素（conter）的left值计算公式：left=(父元素的宽 - 子元素的宽 ) / 2=(200-100) / 2=50px;
+	　　子元素（conter）的top值计算公式：top=(父元素的高 - 子元素的高 ) / 2=(200-100) / 2=50px;
+	　　方法二计算公式：
+	　　left值固定为50%;
+	　　子元素的margin-left= -（子元素的宽/2）=-100/2= -50px;
+	　　top值也一样，固定为50%
+	     子元素的margin-top= -（子元素的高/2）=-100/2= -50px;
+	*/
+</style>
+<div class="test6">
+	<div class="wrap">
+	    <div class="center">center</div>
+	</div>
+</div>
+
+<p>方法七：兼容低版本浏览器，不固定宽高</p>
+<style type="text/css">
+	.table {
+		height: 200px;
+		width: 200px;
+		display: table;
+		position: relative;
+		float: left;
+		background: yellow;
+	}
+	.tableCell {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center; 
+		padding: 10px;
+
+		 *position: absolute;
+		 *top: 50%;
+		 *left: 50%;
+
+	}
+	.content {
+		background: green;
+		*position:relative;
+		*top: -50%;
+		*left: -50%;
+	}
+</style>
+<div class="test7">
+	<div class="table">
+	    <div class="tableCell">
+	        <div class="content">不固定宽高，自适应</div>
+	    </div>
+	</div>
+</div>
+</body>
+</html>
